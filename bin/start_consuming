@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+require_relative '../config/environment'
+require 'sneakers/runner'
+
+Sneakers::Runner.new([SmokeTestConsumer1, SmokeTestConsumer2]).run
