@@ -1,0 +1,35 @@
+version: '3'
+
+
+services:
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_PASSWORD=postgres
+  rabbitmq:
+    image: rabbitmq:3.6-management
+    ports:
+      - '127.0.0.1:15672:15672'
+      - '127.0.0.1:5672:5672'
+  publisher:
+    build:
+      context: .
+    stdin_open: true
+    tty: true
+    environment:
+      - RAILWAY_RABBITMQ_CONNECTION_URL=amqp://rabbitmq
+    links:
+      - db
+      - rabbitmq
+    command: bash -c '/app/bin/start_publishing'
+  consumers:
+    build:
+      context: .
+    stdin_open: true
+    tty: true
+    environment:
+      - RAILWAY_RABBITMQ_CONNECTION_URL=amqp://rabbitmq
+    links:
+      - db
+      - rabbitmq
+    command: bash -c '/app/bin/start_consuming'

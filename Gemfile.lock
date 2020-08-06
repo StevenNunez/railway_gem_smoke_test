@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/learn-co/railway_ipc_gem
+  revision: aaabb21ff9ec6bef49733dad99995d5ca7e52ee9
+  specs:
+    railway-ipc (1.1.0)
+      bunny (~> 2.2.0)
+      sneakers (~> 2.3.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -58,9 +66,6 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.20.3, < 2.0)
-    railway-ipc (1.0.1)
-      bunny (~> 2.2.0)
-      sneakers (~> 2.3.5)
     rake (13.0.1)
     serverengine (1.5.11)
       sigdump (~> 0.2.2)
@@ -89,7 +94,8 @@ DEPENDENCIES
   amq-protocol (= 2.2.0)
   google-protobuf
   pg
-  railway-ipc
+  railway-ipc!
+  rake
   standalone_migrations
 
 BUNDLED WITH

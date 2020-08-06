@@ -1,5 +1,4 @@
-uri = "amqp://localhost"
-ENV['RAILWAY_RABBITMQ_CONNECTION_URL'] = uri
+uri = ENV['RAILWAY_RABBITMQ_CONNECTION_URL']
 
 require 'bundler'
 Bundler.require
@@ -14,7 +13,7 @@ Sneakers.configure(
   connection: default_connection,
 )
 
-ActiveRecord::Base.establish_connection("postgres://postgres:postgres@localhost/smoke_test")
+ActiveRecord::Base.establish_connection("postgres://postgres:postgres@db/smoke_test")
 #  env: "development",
 #  workers: 1,
 #  exchange: 'background_jobs',

@@ -2,7 +2,7 @@ require_relative '../config/environment'
 
 class Handler1
   def handle(message)
-    p message
+    p message.uuid
     p "=========================Handler1 Called =========================="
     OpenStruct.new(success?: true)
   end
@@ -14,7 +14,7 @@ end
 
 class Handler2
   def handle(message)
-    p message
+    p message.uuid
     p "=========================Handler2 Called =========================="
     OpenStruct.new(success?: true)
   end

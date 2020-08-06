@@ -2,5 +2,5 @@ development:
   adapter: postgresql
   username: postgres
   password: postgres
-  host: localhost
+  host: db
   database: 'smoke_test'

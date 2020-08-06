@@ -1,4 +1,16 @@
 #!/usr/bin/env ruby
 require_relative '../config/environment'
 
-SmokeTestPublisher.new.start
+def start
+  Rake::Task.invoke["db:create"]
+  SmokeTestPublisher.new.start
+end
+
+loop do
+  begin
+    start
+  rescue => e
+    p e
+    sleep 1
+  end
+end
